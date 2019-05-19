@@ -1,54 +1,67 @@
 CREATE DATABASE Project;
 
 
-
-CREATE TABLE `users` (
- 
- `user_id` INT(10) NOT NULL AUTO_INCREMENT,
-
-  `first_name` VARCHAR(50) NOT NULL,
- 
- `last_name` VARCHAR(50) NOT NULL,
-
-  `day_phone` VARCHAR(50) NOT NULL,
- 
- `user_name` VARCHAR(50) NOT NULL,
-
-  `user_password` VARCHAR(50) NOT NULL,
- 
- `city` VARCHAR(50) NOT NULL,
-
-  `country` VARCHAR(50) NOT NULL,
- 
- `payment_type` VARCHAR(50) NOT NULL,
+CREATE TABLE users(
   
-`data_id` INT(100) NOT NULL,
-
-  PRIMARY KEY (`user_id`),
-  
-INDEX `fk_users_data_idx` (`data_id` ASC) VISIBLE,
-  CONSTRAINT `fk_users_data`
-    FOREIGN KEY (`data_id`)
-    REFERENCES `project`.`data` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 17
-DEFAULT CHARACTER SET = latin1;
-
-
-
-CREATE TABLE `data` (
-  
-`id` INT(100) NOT NULL AUTO_INCREMENT,
  
- `name` VARCHAR(500) NOT NULL,
- 
- `checkIn` VARCHAR(500) NOT NULL,
+ user_id INT(10) NOT NULL AUTO_INCREMENT,
 
-  `checkOut` VARCHAR(500) NOT NULL,
+
+first_name VARCHAR(50) NOT NULL,
+ 
+
+ last_name VARCHAR(50) NOT NULL,
+
+
+  day_phone VARCHAR(50) NOT NULL,
+
+ 
+ user_name VARCHAR(50) NOT NULL,
+
+
+  user_password VARCHAR(50) NOT NULL,
+ 
+
+ city VARCHAR(50) NOT NULL,
+
+
+  country VARCHAR(50) NOT NULL,
+
+ 
+ payment_type VARCHAR(50) NOT NULL,
+
   
-`RoomType` VARCHAR(500) NOT NULL,
+data_id INT(100) NOT NULL,
+
+
+
+PRIMARY KEY (user_id),
+
+  
+constraint fk_usersdata foreign key(data_id)
+ 
+REFERENCES data(id) 
+
+    );
+
+
+
+
+
+
+
+
+CREATE TABLE data (
+  
+id INT(100) NOT NULL AUTO_INCREMENT,
+ 
+name VARCHAR(500) NOT NULL,
+ 
+checkIn VARCHAR(500) NOT NULL,
+
+checkOut VARCHAR(500) NOT NULL,
+  
+RoomType VARCHAR(500) NOT NULL,
  
  PRIMARY KEY (`id`))
 
